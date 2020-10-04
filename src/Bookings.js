@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 function Bookings(props) {
-  // const [bookings, setBookings] = useState([]);
-  /////////////////////////////////////////
-
-  ///////////////////////////////////////
   function handleClick() {
     props.loadBookings();
   }
-  ///////////////////////////////
 
-  /////////////////////////////////
   function handleToDelete(event) {
     console.log(event.target.className);
     const bookingId = event.target.className;
@@ -21,7 +15,6 @@ function Bookings(props) {
     }).then(() => props.loadBookings());
   }
 
-  // console.log(bookings);
   return (
     <div>
       <button className="btn btn-secondary" onClick={handleClick}>
@@ -30,8 +23,6 @@ function Bookings(props) {
       {!props.bookings.length ? (
         <p>Not loading yet</p>
       ) : (
-        ////
-
         <table className="table">
           <thead>
             <tr>
@@ -70,13 +61,9 @@ function Bookings(props) {
             })}
           </tbody>
         </table>
-
-        /////
       )}
     </div>
   );
 }
 
 export default Bookings;
-
-///////////////////
