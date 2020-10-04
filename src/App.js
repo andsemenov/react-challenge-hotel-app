@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Bookings from "./Bookings";
+import AddBooking from "./AddBooking";
 
 function App() {
+  const [bookings, setBookings] = useState([]);
+  const loadBookings = () => {
+    fetch("http://localhost:3000/bookings")
+      .then((response) => response.json())
+      .then((data) => {
+        setBookings(data);
+      });
+  };
+
+  useEffect(() => {
+    loadBookings();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>HI EVERYONE</p>
       </header>
+      <AddBooking bookings={bookings} loadBookings={loadBookings} />
+      <Bookings bookings={bookings} loadBookings={loadBookings} />
     </div>
   );
 }
