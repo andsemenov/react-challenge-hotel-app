@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function AddBooking(props) {
-  /* const [bookings, setBookings] = useState([]); */
   const [addBooking, setAddBooking] = useState({
     id: "",
     title: "",
@@ -13,18 +12,6 @@ function AddBooking(props) {
     checkOutDate: "",
   });
 
-  ////////////////////////////////////////////////////////
-  /*   const loadBookings = () => {
-    fetch("http://localhost:3000/bookings")
-      .then((response) => response.json())
-      .then((data) => {
-        setBookings(data);
-      });
-  }; */
-  /*   useEffect(() => {
-    loadBookings();
-  }, []); */
-  ///////////////////////////////////////////////////////////
   const handleChange = (event) => {
     const updatedBooking = {
       ...addBooking,
@@ -36,7 +23,7 @@ function AddBooking(props) {
   function handleSubmit(event) {
     event.preventDefault();
     props.loadBookings();
-    ///////////////////////////////////////////////
+
     fetch("http://localhost:3000/bookings", {
       method: "POST",
       body: JSON.stringify({ ...addBooking }),
@@ -44,7 +31,7 @@ function AddBooking(props) {
         "Content-Type": "application/json",
       },
     }).then(() => props.loadBookings());
-    /////////////////////////////////////////
+
     setAddBooking({
       id: "",
       title: "",
@@ -55,11 +42,8 @@ function AddBooking(props) {
       checkInDate: "",
       checkOutDate: "",
     });
-    /////////////////////////////////////
   }
-  /////////////////////////////
 
-  ////////////////////////////
   return (
     <div>
       <form>

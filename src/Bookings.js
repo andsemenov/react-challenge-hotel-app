@@ -20,6 +20,7 @@ function Bookings(props) {
       <button className="btn btn-secondary" onClick={handleClick}>
         Refresh
       </button>
+
       {!props.bookings.length ? (
         <p>Not loading yet</p>
       ) : (

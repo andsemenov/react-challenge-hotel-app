@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>HI EVERYONE</p>
+        <h1>HOTEL BOOKINGS</h1>
       </header>
       <AddBooking bookings={bookings} loadBookings={loadBookings} />
       <Bookings bookings={bookings} loadBookings={loadBookings} />
