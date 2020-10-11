@@ -6,7 +6,7 @@ import AddBooking from "./AddBooking";
 function App() {
   const [bookings, setBookings] = useState([]);
   const loadBookings = () => {
-    fetch("http://localhost:3000/bookings")
+    fetch("/bookings")
       .then((response) => response.json())
       .then((data) => {
         setBookings(data);

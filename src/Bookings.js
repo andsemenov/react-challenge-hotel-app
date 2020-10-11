@@ -7,14 +7,13 @@ function Bookings(props) {
   function handleToDelete(event) {
     console.log(event.target.className);
     const bookingId = event.target.className;
-    fetch(`http://localhost:3000/bookings/${bookingId}`, {
+    fetch(`/bookings/${bookingId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     }).then(() => props.loadBookings());
   }
-
   return (
     <div>
       <button className="btn btn-secondary" onClick={handleClick}>
